@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadSheetReview", "SpreadSheetReview\SpreadSheetReview.csproj", "{73DCFA3F-DD8D-4DCC-B90F-7AFC8F7D1F3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryPatternEx2ConsoleUI", "SpreadSheetReview\FactoryPatternEx2ConsoleUI.csproj", "{73DCFA3F-DD8D-4DCC-B90F-7AFC8F7D1F3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpreadSheetReview
+namespace FactoryPatternEx2ConsoleUI
 {
-    class Product
+    public class Product
     {
+        //Properties
         public string Name { get; set; }
         public decimal Price { get; set; }
     }

@@ -2,46 +2,33 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpreadSheetReview
+namespace FactoryPatternEx2ConsoleUI
 {
-    class MySQLDataAccess : DataAccess, IDataAccess
+    class MySQLDataAccess : IDataAccess
     {
-        public override void GetProducts()
+        public void SaveData()
         {
-            Console.WriteLine("Accessing your MySQL DataBase. . .");
-
-            Console.WriteLine($"You have {Data.products.Count} products in stock.");
-            Console.Write("They are: ");
-
-            foreach (Product p in Data.products)
-            {
-                Console.WriteLine($"{p.Name} : {p.Price,0:c} ");
-                Console.WriteLine();
-            }
+            Console.WriteLine("Saving data to your MySQL Database. . .");
         }
 
-        public override void CreateProduct()
+        /// <summary>
+        /// This method will create a static list of Products. The data will never change
+        /// </summary>
+        /// <returns>List<Product></returns>
+        public List<Product> LoadData()
         {
-            Console.WriteLine("Accessing your MySQL DataBase. . .");
+            Console.WriteLine("Accessing your SQL Database. . .");
 
-            Product p = new Product();
-
-            Console.WriteLine("Please give me the name of your product");
-            p.Name = Console.ReadLine();
-
-            Console.WriteLine("Please give me the price of your product");
-            string userStringNumber = Console.ReadLine();
-            decimal price;
-            while (!decimal.TryParse(userStringNumber, out price))
+            return new List<Product>()
             {
-                Console.WriteLine("Invalid number please try again");
-                userStringNumber = Console.ReadLine();
-            }
-
-            p.Price = price;
-
-            Console.WriteLine("Adding your product to the MySQL DataBase . . .");
-            Data.products.Add(p);
+                new Product() { Name = "Pearl Jam Ten", Price = 12.99m },
+                new Product() { Name = "Megaman X Collection", Price = 59.99m },
+                new Product() { Name = "Keyboard", Price = 120.99m },
+                new Product() { Name = "Monitor", Price = 159.99m },
+                new Product() { Name = "Mouse", Price = 65.99m },
+                new Product() { Name = "Desk", Price = 250.99m },
+                new Product() { Name = "Power Supply", Price = 120.99m }
+            };
         }
     }
 }

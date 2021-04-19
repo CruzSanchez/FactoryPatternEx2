@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpreadSheetReview
+namespace FactoryPatternEx2ConsoleUI
 {
     static class DataAccessFactory
     {
-        public static DataAccess GetDataAccess(string databaseType)
+        public static IDataAccess GetDataAccess(string databaseType)
         {
             switch (databaseType.ToLower())
             {

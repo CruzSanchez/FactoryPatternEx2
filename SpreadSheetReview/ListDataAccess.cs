@@ -2,47 +2,35 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpreadSheetReview
+namespace FactoryPatternEx2ConsoleUI
 {
-    class ListDataAccess : DataAccess, IDataAccess
+    class ListDataAccess : IDataAccess
     {
-        public override void GetProducts()
+        public static List<Product> Products = new List<Product>()
         {
-            Console.WriteLine("Accessing your static list. . .");
+            new Product() { Name = "Pearl Jam Ten", Price = 12.99m },
+                new Product() { Name = "Megaman X Collection", Price = 59.99m },
+                new Product() { Name = "Keyboard", Price = 120.99m },
+                new Product() { Name = "Monitor", Price = 159.99m },
+                new Product() { Name = "Mouse", Price = 65.99m },
+                new Product() { Name = "Desk", Price = 250.99m },
+                new Product() { Name = "Power Supply", Price = 120.99m }
+        };
 
-            Console.WriteLine($"You have {Data.products.Count} products in stock.");
-            Console.Write("They are: ");
-
-            foreach (Product p in Data.products)
-            {
-                Console.Write($"{p.Name} : {p.Price,0:c} ");
-                Console.WriteLine();
-            }
+        public void SaveData()
+        {
+            Console.WriteLine("Saving your static list. . .");
         }
 
-        public override void CreateProduct()
+        /// <summary>
+        /// This method will return a static list of Products. The data will never change
+        /// </summary>
+        /// <returns>List<Product></returns>
+        public List<Product> LoadData()
         {
             Console.WriteLine("Accessing your static list. . .");
 
-            Product p = new Product();
-
-            Console.WriteLine("Please give me the name of your product");
-            p.Name = Console.ReadLine();
-
-            Console.WriteLine("Please give me the price of your product");
-            string userStringNumber = Console.ReadLine();
-            decimal price;
-            while (!decimal.TryParse(userStringNumber, out price))
-            {
-                Console.WriteLine("Invalid number please try again");
-                userStringNumber = Console.ReadLine();
-            }
-
-            p.Price = price;
-
-            Console.WriteLine("Adding to your static list. . .");
-            Data.products.Add(p);
-
+            return Products;
         }
     }
 }
